@@ -13,7 +13,7 @@ const closest = function(el, selector, rootNode) {
       }
       break;
     }
-    element = element.parentElement;
+    element = element.parentNode;
   }
   return element;
 };
@@ -32,7 +32,7 @@ const getScrollElement = function(el) {
       element = null;
       break;
     }
-    element = element.parentElement;
+    element = element.parentNode;
   } while (element);
   return element;
 };
