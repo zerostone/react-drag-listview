@@ -85,7 +85,7 @@ class ReactDragListView extends Component {
         ev.preventDefault();
         return true;
       };
-      const fromIndex = this.getItemIndex(target);
+      const fromIndex = getDomIndex(target);
       this.setState({ fromIndex, toIndex: fromIndex });
       this.scrollElement = getScrollElement(parentNode);
     }
@@ -96,7 +96,7 @@ class ReactDragListView extends Component {
     const eventData = e;
     let toIndex;
     if (target) {
-      toIndex = this.getItemIndex(target);
+      toIndex = getDomIndex(target);
       if (this.props.enableScroll) {
         this.resolveAutoScroll(eventData, target);
       }
@@ -124,10 +124,6 @@ class ReactDragListView extends Component {
     }
     this.hideDragLine();
     this.setState({ fromIndex: -1, toIndex: -1 });
-  }
-
-  getItemIndex(target) {
-    return getDomIndex(target);
   }
 
   getDragNode(target) {
