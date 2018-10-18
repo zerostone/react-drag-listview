@@ -127,9 +127,7 @@ class ReactDragListView extends Component {
   }
 
   getItemIndex(target) {
-    return this.props.nodeSelector === DEFAULT_NODE_SELECTOR
-      ? (target.rowIndex - 1)
-      : getDomIndex(target);
+    return getDomIndex(target);
   }
 
   getDragNode(target) {
