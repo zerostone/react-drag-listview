@@ -13,7 +13,7 @@ const closest = function(el, selector, rootNode) {
       }
       break;
     }
-    element = element.parentElement;
+    element = element.parentNode;
   }
   return element;
 };
@@ -21,7 +21,7 @@ const closest = function(el, selector, rootNode) {
 const getScrollElement = function(el) {
   let element = el;
   do {
-    const overflow = getComputedStyle(element).overflow;
+    const { overflow } = window.getComputedStyle(element);
     if ((overflow === 'auto' || overflow === 'scroll')
         && (element && element.nodeType
             && (element.offsetWidth < element.scrollWidth
@@ -32,7 +32,7 @@ const getScrollElement = function(el) {
       element = null;
       break;
     }
-    element = element.parentElement;
+    element = element.parentNode;
   } while (element);
   return element;
 };

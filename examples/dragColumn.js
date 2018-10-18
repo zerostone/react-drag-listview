@@ -1,17 +1,18 @@
 /* eslint-disable no-console,func-names,react/no-multi-comp */
-const React = require('react');
-const ReactDOM = require('react-dom');
-const ReactDragListView = require('react-drag-listview/src/index.js');
-const DragColumn = ReactDragListView.DragColumn;
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactDragListView from 'react-drag-listview/src/index.js';
 
-require('./index.less');
-require('./dragColumn.less');
+import './index.less';
+import './dragColumn.less';
+
+const { DragColumn } = ReactDragListView;
 
 class Demo extends React.Component {
   constructor(props) {
     super(props);
     const data = [];
-    for (let i = 1, len = 21; i < len; i++) {
+    for (let i = 1, len = 21; i < len; i += 1) {
       data.push({
         title: `col${i}`
       });
@@ -25,7 +26,7 @@ class Demo extends React.Component {
     const that = this;
     const dragProps = {
       onDragEnd(fromIndex, toIndex) {
-        const data = that.state.data;
+        const { data } = that.state;
         const item = data.splice(fromIndex, 1)[0];
         data.splice(toIndex, 0, item);
         that.setState({ data });
@@ -40,11 +41,11 @@ class Demo extends React.Component {
         <div className="simple-inner">
           <DragColumn {...dragProps}>
             <ol style={{ width: 70 * this.state.data.length }}>
-            {this.state.data.map((item, index) => (
-              <li key={index}>
-                {item.title}
-                <a href="#">Drag</a>
-              </li>
+              {this.state.data.map((item, index) => (
+                <li key={index}>
+                  {item.title}
+                  <a href="#">Drag</a>
+                </li>
             ))}
             </ol>
           </DragColumn>
@@ -54,5 +55,4 @@ class Demo extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <Demo/>, document.getElementById('__react-content'));
+ReactDOM.render(<Demo />, document.getElementById('__react-content'));
