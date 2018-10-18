@@ -21,7 +21,7 @@ const closest = function(el, selector, rootNode) {
 const getScrollElement = function(el) {
   let element = el;
   do {
-    const overflow = getComputedStyle(element).overflow;
+    const { overflow } = window.getComputedStyle(element);
     if ((overflow === 'auto' || overflow === 'scroll')
         && (element && element.nodeType
             && (element.offsetWidth < element.scrollWidth

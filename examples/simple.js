@@ -1,15 +1,14 @@
 /* eslint-disable no-console,func-names,react/no-multi-comp */
-const React = require('react');
-const ReactDOM = require('react-dom');
-const ReactDragListView = require('react-drag-listview/src/index.js');
-
-require('./index.less');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactDragListView from 'react-drag-listview/src/index.js';
+import './index.less';
 
 class Demo extends React.Component {
   constructor(props) {
     super(props);
     const data = [];
-    for (let i = 1, len = 21; i < len; i++) {
+    for (let i = 1, len = 21; i < len; i += 1) {
       data.push({
         title: `rows${i}`
       });
@@ -23,7 +22,7 @@ class Demo extends React.Component {
     const that = this;
     const dragProps = {
       onDragEnd(fromIndex, toIndex) {
-        const data = that.state.data;
+        const { data } = that.state;
         const item = data.splice(fromIndex, 1)[0];
         data.splice(toIndex, 0, item);
         that.setState({ data });
@@ -38,11 +37,11 @@ class Demo extends React.Component {
         <div className="simple-inner">
           <ReactDragListView {...dragProps}>
             <ol>
-            {this.state.data.map((item, index) => (
-              <li key={index}>
-                {item.title}
-                <a href="#">Drag</a>
-              </li>
+              {this.state.data.map((item, index) => (
+                <li key={index}>
+                  {item.title}
+                  <a href="#">Drag</a>
+                </li>
             ))}
             </ol>
           </ReactDragListView>
@@ -52,5 +51,4 @@ class Demo extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <Demo/>, document.getElementById('__react-content'));
+ReactDOM.render(<Demo />, document.getElementById('__react-content'));

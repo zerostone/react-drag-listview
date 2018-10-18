@@ -53,12 +53,11 @@
     "prop-types": "^15.5.8"
   },
   "devDependencies": {
-    "rc-tools": "^5.9.2",
     "expect.js": "~0.3.1",
     "pre-commit": "1.x",
-    "react": "^15.2.1",
-    "prop-types": "^15.5.8",
-    "react-dom": "^15.2.1"
+    "rc-tools": "^8.2.2",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   },
   "pre-commit": [
     "lint"

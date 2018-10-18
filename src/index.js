@@ -1,4 +1,5 @@
-const ReactDragListView = require('./ReactDragListView');
-const ReactDragColumnView = require('./ReactDragColumnView');
+import ReactDragListView from './ReactDragListView';
+import ReactDragColumnView from './ReactDragColumnView';
+
 ReactDragListView.DragColumn = ReactDragColumnView;
-module.exports = ReactDragListView;
+export default ReactDragListView;
