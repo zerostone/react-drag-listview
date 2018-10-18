@@ -1,6 +1,6 @@
 {
   "name": "react-drag-listview",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "author": "raisezhang@hotmail.com",
   "description": "drag list view and table view component for react",
   "keywords": [
@@ -17,16 +17,13 @@
   "license": "MIT",
   "homepage": "https://github.com/raisezhang/react-drag-listview#readme",
   "main": "./lib/index",
+  "module": "./es/index",
   "files": [
     "assets/*.css",
     "dist",
+    "es",
     "lib"
   ],
-  "entry": {
-    "react-drag-listview": [
-      "./src/index.js"
-    ]
-  },
   "maintainers": [
     "raisezhang@hotmail.com"
   ],
@@ -38,14 +35,20 @@
     "url": "https://github.com/raisezhang/react-drag-listview/issues"
   },
   "config": {
+    "entry": {
+      "react-drag-listview": [
+        "./src/index.js"
+      ]
+    },
     "port": 8000
   },
   "scripts": {
+    "dist": "rc-tools run dist",
     "build": "rc-tools run build",
-    "compile": "rc-tools run compile",
+    "compile": "rc-tools run compile --babel-runtime",
     "gh-pages": "rc-tools run gh-pages",
     "start": "rc-tools run server",
-    "pub": "rc-tools run pub",
+    "pub": "rc-tools run pub --babel-runtime",
     "lint": "rc-tools run lint",
     "lint:fix": "rc-tools run lint --fix"
   },
