@@ -1,5 +1,8 @@
 # react-drag-listview
 
+> This repository is based on `raisezhang/react-drag-listview`, just fix a minor issue inside util.js.
+
+
 React drag list component.
 
 [![NPM version][npm-image]][npm-url]
